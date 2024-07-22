@@ -39,7 +39,7 @@ export const ModalEvent = ({ show, data, setShow }:Props) => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={()=>deleteEvent(data.id, 'events')}>
+          <Button variant="danger" style={{backgroundColor: '#C70039'}} onClick={()=>deleteEvent(data.id, 'events')}>
             Borrar
           </Button>
           {

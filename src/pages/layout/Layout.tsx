@@ -1,9 +1,11 @@
-import { Outlet }         from 'react-router-dom'
+import { Outlet }           from 'react-router-dom'
 
-import { Menuoption }     from '../../interfaces/menuoption.interface'
-import { Sidebar }        from '../../components/sidebar/Sidebar'
-import { EventProvider }  from '../../context/EventContext'
-import { FooterComponent } from '../../components/footer/FooterComponent'
+import { Menuoption }       from '../../interfaces/menuoption.interface'
+import { Sidebar }          from '../../components/sidebar/Sidebar'
+import { EventProvider }    from '../../context/EventContext'
+import { FooterComponent }  from '../../components/footer/FooterComponent'
+import { GithubComponent }  from '../../components/github/GitHubComponent'
+
 
 const menuoption: Menuoption[] = [
   {
@@ -31,7 +33,8 @@ export const Layout = () => {
         style={{height: '100vh', width: '100vw'}}
       >
         <Sidebar menuoptions={menuoption}/>
-        <div className='w-100 d-flex justify-content-around'>
+        <GithubComponent text='Ver Codigo' url='https://github.com/orimarselasirg/events-creator'/>
+        <div className='w-100 d-flex justify-content-around flex-column'>
           <Outlet />
           <FooterComponent text='Design By Rami'/>
         </div>

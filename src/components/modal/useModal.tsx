@@ -23,7 +23,7 @@ export const useModal = ({
     const deletionApproved = await confirmationAlert({
       title: '¿Esta seguro?',
       text:"Estas a punto de borrar un evento, esta accion no podra deshacerce",
-      confirmButtonText:'Borrar',
+      confirmButtonText:'Si, estoy seguro',
       resultsTitle: "Atencion",
       resultText: "Evento borrado con exito",
       iconAlert: 'warning',
