@@ -1,6 +1,7 @@
 # Event generator app
 
 Esta aplicación web está diseñada como una herramienta para la gestión de eventos y su seguimiento detallado
+https://velvety-mermaid-ab2da0.netlify.app
 
 ## Stack utilizado
 
