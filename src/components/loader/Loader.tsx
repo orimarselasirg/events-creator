@@ -12,7 +12,6 @@ export const Loader = ({show}: Props) => {
     <div className={style.loader_overlay}>
       <div className="d-flex justify-content-center" style={{position: 'absolute', bottom: '50%', left: '50%'}}>
         <div className="spinner-border spinner-border-xl" style={{width: '4rem', height: '4rem'}} role="status">
-          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     </div>

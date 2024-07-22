@@ -29,7 +29,7 @@ export const loadFromLocalstorage = <T>(key: string): T | null => {
 
   } catch (error) {
     
-    console.error('Hubo un error en el carga del la data', error);
+    console.error('Hubo un error en la carga del la data', error);
     
     return null
   }
@@ -45,13 +45,11 @@ export const loadOneLocalstorage = (key: string, id: string) => {
 
     const eventFound = events.find((event: Event) => event.id === id)
 
-    console.log({eventFound});
-
     return eventFound as FormEventModel
 
   } catch (error) {
     
-    console.error('Hubo un error en el carga del la data', error);
+    console.error('Hubo un error en la carga del la data', error);
     
     return null
   }
@@ -71,7 +69,7 @@ export const deleteFromLocalstorage =(id: string, key: string): void | null => {
 
   } catch (error) {
 
-    console.error('Hubo un error en la elminiacion del evento', error)
+    console.error('Hubo un error en la elminiación del evento', error)
 
   }
 

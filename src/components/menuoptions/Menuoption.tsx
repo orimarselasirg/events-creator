@@ -28,7 +28,6 @@ export const MenuOptionComponent = ({menuOptions, change}: Props) => {
                 size={'large'}
                 style={{marginRight: '8px'}}
               />
-              
               {change ? '' : option.name}
             </NavLink>
           </div>

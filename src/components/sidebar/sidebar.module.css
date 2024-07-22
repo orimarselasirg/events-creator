@@ -1,28 +1,28 @@
 .sidebar {
- display: flex;
- flex-direction: column;
- flex-shrink: 0px;
- padding: 15px;
- background-color: rgb(34, 36, 39);
- color: rgb(230, 229, 229);
- width: 230px;
- transition: all 0.2s ease-in-out;
+ display:           flex;
+ flex-direction:    column;
+ flex-shrink:       0px;
+ padding:           15px;
+ background-color:  rgb(34, 36, 39);
+ color:             rgb(230, 229, 229);
+ width:             230px;
+ transition:        all 0.2s ease-in-out;
 }
 
 .sidebar_shrink {
- display: flex;
- flex-direction: column;
- flex-shrink: 0px;
- background-color: rgb(34, 36, 39);
- color: rgb(230, 229, 229);
- transition: all 0.2s ease-in-out;
-  width: 70px;
+ display:           flex;
+ flex-direction:    column;
+ flex-shrink:       0px;
+ background-color:  rgb(34, 36, 39);
+ color:             rgb(230, 229, 229);
+ transition:        all 0.2s ease-in-out;
+  width:            70px;
 }
 
 .logo {
-  position: relative; 
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column
+  position:         relative; 
+  height:           100%;
+  display:          flex;
+  justify-content:  flex-end;
+  flex-direction:   column
 }

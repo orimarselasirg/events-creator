@@ -49,7 +49,7 @@ export const CreateEventForm = () => {
       <Loader show={isLoading}/>
       <div className='p-5'>
         <Text type='title'>{!isEditing.isEditEvent ? 'Crea un evento': 'Modificar Evento'}</Text>
-        <p className='text-secondary'>Aqui podras crear un evento nuevo, es importante tener las imagenes con las medidas requeridas para cada formato</p>
+        <p className='text-secondary'>Aquí podrás crear un evento nuevo, es importante tener las imágenes con las medidas requeridas para cada formato</p>
         <hr />
         <form
           className='d-flex row-cols-3 flex-wrap justify-content-center mt-4'
@@ -58,15 +58,15 @@ export const CreateEventForm = () => {
           {
             inputs.map((input, index: number) =>(
               <Input
-                key={index}
-                label={input.label}
-                name={input.name}
-                type={input.type}
-                placeholder={input.placeholder}
-                value={formEvent[input.name] as string}
-                onChange={input.type === 'file' ?  handleImageUpload: onChange}
-                onBlur={(e)=>handleBlur(e, input.name)}
-                error={errors[input.name]}
+                key=          {index}
+                label=        {input.label}
+                name=         {input.name}
+                type=         {input.type}
+                placeholder=  {input.placeholder}
+                value=        {formEvent[input.name] as string}
+                onChange=     {input.type === 'file' ?  handleImageUpload: onChange}
+                onBlur=       {(e)=>handleBlur(e, input.name)}
+                error=        {errors[input.name]}
               />
             ))
           }

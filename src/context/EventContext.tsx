@@ -78,45 +78,45 @@ export const EventProvider = ({children}: EventProviderProps) => {
 
   const inputs: Inputs[] = [
     {
-      label: 'ingrese nombre del evento',
+      label: 'Nombre del evento',
       type: 'text',
-      placeholder: 'Ingrese nombre del evento',
+      placeholder: 'Ingresa nombre del evento',
       name: 'name'
     },
     {
       label: 'Fecha del evento',
       type: 'date',
-      placeholder: 'Ingrese la fecha del evento',
+      placeholder: 'Ingresa la fecha del evento',
       name: 'date'
     },
     {
       label: 'Hora del evento',
       type: 'time',
-      placeholder: 'Ingrese hora de inicio',
+      placeholder: 'Ingresa hora de inicio del evento',
       name: 'time'
     },
     {
       label: 'Url de compras',
       type: 'url',
-      placeholder: 'Ingrese URL de para redireccionar la compra',
+      placeholder: 'Ingrese URL donde el usuario podrá hacer la compra',
       name: 'url'
     },
     {
-      label: 'Imagen Desktop',
+      label: 'Imagen Desktop (2340 x 700 px)',
       type: 'file',
-      placeholder: 'La imagen debe ser de 2340 x 700 px',
+      placeholder: 'Medidas de imagen 2340 x 700 px',
       name: 'desktopImage'
     },
     {
-      label: 'Imagen Tablet',
+      label: 'Imagen Tablet (1440 x 1080 px)',
       type: 'file',
-      placeholder: 'La imagen debe ser de 1440 x 1080 px',
+      placeholder: 'Medidas imagen 1440 x 1080 px',
       name: 'tableImage'
     },
     {
-      label: 'Imagen Mobile',
+      label: 'Imagen Mobile (1920 x 1080 px)',
       type: 'file',
-      placeholder: 'La imagen debe ser de 1920 x 1080 px',
+      placeholder: 'Medida imagen 1920 x 1080 px',
       name: 'mobileImage'
     },
   ]
@@ -142,7 +142,7 @@ export const EventProvider = ({children}: EventProviderProps) => {
       const eventsData = await loadFromLocalstorage<Event[]>(key)
       setEvents(eventsData)
     } catch (error) {
-      console.error('Hubo un error en el carga del la data', error);
+      console.error('Hubo un error en la carga de los eventos', error);
     }
   }
   
@@ -152,37 +152,41 @@ export const EventProvider = ({children}: EventProviderProps) => {
       if(!event) return
       setFormEvent(event)
     } catch (error) {
-      console.error('Hubo un error en el carga del la data', error);
+      console.error('Hubo un error en la carga del evento', error);
     }
   }
 
   const confirmationEvent = async () => {
-    const deletionApproved = await confirmationAlert({
-      iconAlert:          'question',
-      iconSucess:         'success',
-      title:              isEditing.isEditEvent ? "¿Editar Evento?": '¿Crear Evento?' ,
-      text:               `Estas a punto de ${isEditing.isEditEvent ? 'editar': 'crear'} un evento`,
-      confirmButtonText:  'Continuar',
-      resultsTitle:       "¡Atención!",
-      resultText:         `Evento ${isEditing.isEditEvent ? 'editado': 'creado'} con exito`
-    })
-
-    if(deletionApproved){
-      setIsLoading(!isLoading)
-        setTimeout(() => {
-        setFormEvent({
-          ...formEvent,
-          id: uuidv4()
-        })
-        isEditing.isEditEvent
-        ? editEvent(isEditing.id, 'events', formEvent)
-        : saveEvent('events', formEvent)
-        setFormEvent(initialFormEvent)
-        setIsLoading(false)
-        setFlag(!flag)
-      }, 2000);
+    try {
+      const deletionApproved = await confirmationAlert({
+        iconAlert:          'question',
+        iconSucess:         'success',
+        title:              isEditing.isEditEvent ? "¿Editar Evento?": '¿Crear Evento?' ,
+        text:               `Estas a punto de ${isEditing.isEditEvent ? 'editar': 'crear'} un evento`,
+        confirmButtonText:  'Continuar',
+        resultsTitle:       "¡Atención!",
+        resultText:         `Evento ${isEditing.isEditEvent ? 'editado': 'creado'} con exito`
+      })
+  
+      if(deletionApproved){
+        setIsLoading(!isLoading)
+          setTimeout(() => {
+          setFormEvent({
+            ...formEvent,
+            id: uuidv4()
+          })
+          isEditing.isEditEvent
+          ? editEvent(isEditing.id, 'events', formEvent)
+          : saveEvent('events', formEvent)
+          setFormEvent(initialFormEvent)
+          setIsLoading(false)
+          setFlag(!flag)
+        }, 2000);
+      }
+      redirect('/')
+    } catch (error) {
+      console.log({error});
     }
-    redirect('/dashboard')
   }
 
   const deleteEvent = (id: string, key: string): void => {
@@ -193,7 +197,7 @@ export const EventProvider = ({children}: EventProviderProps) => {
       }, 2000);
       setEvents((previous) => previous && previous.filter(event => event.id !== id));
     } catch (error) {
-      console.error('Hubo un error en la elminiacion del evento', error)
+      console.error('Hubo un error al borrar el evento', error)
     } finally {
       setIsLoading(false)
     }
@@ -259,7 +263,7 @@ export const EventProvider = ({children}: EventProviderProps) => {
     if(name === 'name' && isEmpty) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: 'Este campo no puede estar vacio'}))
+        [name]: 'Este campo no puede estar vacío'}))
       return
     }
     if(name === 'url' && !isValidUrl) {
@@ -271,13 +275,13 @@ export const EventProvider = ({children}: EventProviderProps) => {
     if(name === 'date' && !isValidDate) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: 'Fecha invalida' }))
+        [name]: 'Fecha inválida' }))
       return
     }
     if(name === 'time' && !isValidTime) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: 'Tiempo invalido' }))
+        [name]: 'Tiempo inválido' }))
       return
     }
 
@@ -318,7 +322,7 @@ export const EventProvider = ({children}: EventProviderProps) => {
           if(!isFileSizeValid) {
             setErrors((prevErrors) => ({
               ...prevErrors,
-              [name]: 'El archivo supera el maximo permitido' }))
+              [name]: 'El archivo supera el máximo permitido' }))
             return
           }
           

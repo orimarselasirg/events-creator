@@ -58,7 +58,7 @@ export const EventReportPage = () => {
     <div className=' w-100 col p-5'>
       <Loader show={isLoading}/>
       <Text type='title'>Reporte de Eventos</Text>
-      <p className='text-secondary'>Aqui podras ver un listado de todos eventos, datos generales y su estado, tambien podras editar</p>
+      <p className='text-secondary'>Aquí podrás ver un listado de todos eventos, datos generales y su estado, también podrás editar</p>
       <hr />
       <table className="table">
         <thead>

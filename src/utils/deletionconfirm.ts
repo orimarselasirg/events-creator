@@ -20,21 +20,21 @@ export const confirmationAlert = ({
   iconSucess
 }: Params): Promise<boolean | undefined> => {
   const isAproved = Swal.fire({
-    title: title,
-    text: text,
-    icon: iconAlert,
-    showCancelButton: true,
+    title:              title,
+    text:               text,
+    icon:               iconAlert,
+    showCancelButton:   true,
     confirmButtonColor: "#C70039",
-    cancelButtonColor: "#222427",
-    confirmButtonText: confirmButtonText,
-    iconColor: '#C70039'
+    cancelButtonColor:  "#222427",
+    confirmButtonText:  confirmButtonText,
+    iconColor:          '#C70039'
   }).then((result) => {
    if (result.isConfirmed) {
       Swal.fire({
-        title: resultsTitle,
-        text: resultText,
-        icon: iconSucess,
-        iconColor: '#222427',
+        title:              resultsTitle,
+        text:               resultText,
+        icon:               iconSucess,
+        iconColor:          '#222427',
         confirmButtonColor: '#222427'
       });
       return  true

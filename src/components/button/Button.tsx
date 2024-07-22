@@ -1,10 +1,10 @@
 import { CSSProperties } from "react";
 
 interface Props {
-  label:    string;
-  onClick:  ()=>void
-  styles?:  CSSProperties
-  disabled?: boolean;
+  label:      string;
+  onClick:    ()=>void
+  styles?:    CSSProperties
+  disabled?:  boolean;
 }
 
 export const FloatingActionButton = ({label, onClick, styles, disabled=false}: Props) => {

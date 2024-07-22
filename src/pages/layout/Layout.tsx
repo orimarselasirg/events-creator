@@ -15,7 +15,7 @@ const menuoption: Menuoption[] = [
   },
   {
     name: 'Listado de Eventos',
-    path: '/dashboard',
+    path: '/',
     icon: 'list-circle-outline'
   },
   {
@@ -33,8 +33,12 @@ export const Layout = () => {
         style={{height: '100vh', width: '100vw'}}
       >
         <Sidebar menuoptions={menuoption}/>
-        <GithubComponent text='Ver Codigo' url='https://github.com/orimarselasirg/events-creator'/>
+        <GithubComponent text='Ver Código' url='https://github.com/orimarselasirg/events-creator'/>
         <div className='w-100 d-flex justify-content-around flex-column'>
+          {/* <div className='align-self-center'>
+            <h1 className='text-center'>Event Generator Application</h1>
+            <p> Bienvenido a nuestra aplicación, donde podrás gestionar la creación de tus eventos y realizar un seguimiento detallado.</p>
+          </div> */}
           <Outlet />
           <FooterComponent text='Design By Rami'/>
         </div>

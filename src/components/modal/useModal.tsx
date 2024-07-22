@@ -1,6 +1,6 @@
-import { useContext } from 'react'
-import { confirmationAlert } from '../../utils/deletionconfirm'
-import { EventContext } from '../../context/EventContext'
+import { useContext }         from 'react'
+import { confirmationAlert }  from '../../utils/deletionconfirm'
+import { EventContext }       from '../../context/EventContext'
 
 type Props = {
   show:     boolean,
@@ -21,13 +21,13 @@ export const useModal = ({
 
   const deleteEventById = async (id: string, key: string) => {
     const deletionApproved = await confirmationAlert({
-      title: '¿Esta seguro?',
-      text:"Estas a punto de borrar un evento, esta accion no podra deshacerce",
-      confirmButtonText:'Si, estoy seguro',
-      resultsTitle: "Atencion",
-      resultText: "Evento borrado con exito",
-      iconAlert: 'warning',
-      iconSucess: 'success',
+      title:              '¿Está seguro?',
+      text:               'Estás a punto de borrar un evento, esta acción no podrá deshacerse',
+      confirmButtonText:  'Sí, estoy seguro',
+      resultsTitle:       'Atención',
+      resultText:         'Evento borrado con éxito',
+      iconAlert:          'warning',
+      iconSucess:         'success',
     })
 
     if(deletionApproved){
