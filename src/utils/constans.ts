@@ -1,0 +1,10 @@
+export const IMAGE = {
+  ONE_MB:             1024,  
+  MAX_KB:             800,
+  MAX_DESKTOP_WIDTH:  2340,
+  MAX_DESKTOP_HEIGTH: 700,
+  MAX_TABLE_WIDTH:    1440,
+  MAX_TABLE_HEIGTH:   1080,
+  MAX_MOBILE_WIDTH:   1920,
+  MAX_MOBILE_HEIGTH:  1080,
+}
